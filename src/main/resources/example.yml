@@ -1,0 +1,6 @@
+enabled: true
+mode: survival
+limits:
+  players: 100
+messages:
+  prefix: Warndev

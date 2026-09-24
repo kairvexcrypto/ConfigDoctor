@@ -1,0 +1,57 @@
+version: 1
+profiles:
+  blockjournal:
+    file: BlockJournal/config.yml
+    rules:
+      - path: /queue/capacity
+        type: integer
+        required: true
+        min: 100
+        max: 1000000
+      - path: /queue/batch-size
+        type: integer
+        required: true
+        min: 1
+        max: 10000
+      - path: /storage/retention-days
+        type: integer
+        required: true
+        min: 1
+        max: 3650
+      - path: /inspection/tool
+        type: string
+        required: true
+        min-length: 1
+        max-length: 64
+      - path: /capture/excluded-worlds
+        type: array
+        required: true
+        item-type: string
+        unique: true
+        max-items: 100
+  example:
+    file: ConfigDoctor/example.yml
+    rules:
+      - path: /enabled
+        type: boolean
+        required: true
+      - path: /mode
+        type: string
+        required: true
+        allowed: [survival, arena]
+      - path: /limits/players
+        type: integer
+        required: true
+        min: 1
+        max: 500
+      - path: /messages/prefix
+        type: string
+        required: true
+        max-length: 64
+      - path: /arena/world
+        type: string
+        required: true
+        min-length: 1
+        when:
+          path: /mode
+          equals: arena
