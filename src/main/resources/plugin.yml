@@ -1,0 +1,21 @@
+name: ConfigDoctor
+version: '${project.version}'
+main: ru.warndev.configdoctor.ConfigDoctorPlugin
+api-version: '1.21.11'
+author: Warndev
+description: Read-only YAML configuration validation
+commands:
+  configdoctor:
+    aliases: [cdoc]
+    description: Validate configured YAML profiles
+    usage: /cdoc help
+    permission: configdoctor.use
+permissions:
+  configdoctor.use:
+    default: op
+  configdoctor.check:
+    default: op
+  configdoctor.reload:
+    default: op
+  configdoctor.export:
+    default: op
